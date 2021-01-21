@@ -1,13 +1,13 @@
 <?php
     session_start();
     include "includes/functions.php";
-    $_SESSION['gen_numbers'] = isset($_SESSION['gen_numbers']) ? $_SESSION['gen_numbers'] : genNumbers();
-    $_SESSION['gen_tzoker'] = isset($_SESSION['gen_tzoker']) ? $_SESSION['gen_tzoker'] : genTzoker();
     $message = '';
     $message2 = '';
     $message3 = '';
     $numbers = [];
     if(isset($_POST['play'])) {
+        $_SESSION['gen_numbers'] = isset($_SESSION['gen_numbers']) ? $_SESSION['gen_numbers'] : genNumbers();
+        $_SESSION['gen_tzoker'] = isset($_SESSION['gen_tzoker']) ? $_SESSION['gen_tzoker'] : genTzoker();
         $num1 = $_POST['number-1'];
         $num2 = $_POST['number-2'];
         $num3 = $_POST['number-3'];
@@ -79,7 +79,9 @@
                                                         foreach($numbers as $n) { 
                                                             echo $n . ' ';
                                                         }
-                                                        echo '<br> With Tzoker number : ' . $tzoker;
+                                                        if ($tzoker !=0) {
+                                                            echo '<br> With Tzoker number : ' . $tzoker;
+                                                        }
                                                         ?></label>
                 <label for="title" class="col-sm-10"><?php
                                                         echo '<br>' . $message3;
