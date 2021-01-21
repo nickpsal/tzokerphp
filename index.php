@@ -5,6 +5,7 @@
     $message2 = '';
     $message3 = '';
     $numbers = [];
+    $tzoker = 0;
     if(isset($_POST['play'])) {
         $_SESSION['gen_numbers'] = isset($_SESSION['gen_numbers']) ? $_SESSION['gen_numbers'] : genNumbers();
         $_SESSION['gen_tzoker'] = isset($_SESSION['gen_tzoker']) ? $_SESSION['gen_tzoker'] : genTzoker();
