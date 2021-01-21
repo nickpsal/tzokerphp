@@ -1,3 +1,20 @@
+<?php
+    $message = '';
+    if(isset($_POST['play'])) {
+        $num1 = $_POST['number-1'];
+        $num2 = $_POST['number-2'];
+        $num3 = $_POST['number-3'];
+        $num4 = $_POST['number-4'];
+        $num5 = $_POST['number-5'];
+        $tzoker = $_POST['tzoker'];
+        if (($num1 <=0 && $num1 >=46) || ($num2 <=0 && $num2 >=46) || ($num3 <=0 && $num3 >=46) || ($num4 <=0 && $num4 >=46) || ($num5 <=0 && $num5 >=46)) {
+            $message = 'Out of range';
+        }else if ($num1 == $num2 || $num1 == $num3 || $num1 == $num4 || $num1 == $num5 || $num2 == $num3 || $num2 == $num4 || $num2 == $num5 || $num3 == $num4 || $num3 == $num5 || $num4 == $num5) {
+            $message = 'You have duplicated numbers';
+        }
+        echo $num1 . ' ' . $num2 . ' ' . $num3 . ' '. $num4 . ' ' . $num5 . ' ' . $tzoker;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +45,9 @@
             <div class='form-group'>
                 <label for="title" class="col-sm-10">Type 1 Number between 1 and 20</label>
                 <input type="text" class="col-sm-10" name="tzoker" required>
+            </div>
+            <div class='form-group'>
+                <label for="title" class="col-sm-10"><?php echo $message;?></label>
             </div>
             <div class='form-group'>
                 <input class = 'btn btn-primary col-sm-5' type = 'submit' name = 'play' value = 'PLAY TZOKER'>
